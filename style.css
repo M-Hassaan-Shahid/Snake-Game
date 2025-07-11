@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("img/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Stack elements vertically on small screens */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.board {
+  background: linear-gradient(rgb(120, 213, 120), rgb(161, 161, 53));
+  width: 100vmin; /* Reduced from 90vmin for better fit */
+  height: 100vmin; /* Square board for consistency */
+  max-width: 600px; /* Cap for large screens */
+  max-height: 600px;
+  min-width: 280px; /* Minimum size for small screens */
+  min-height: 280px;
+  border: 2px solid black;
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  grid-template-rows: repeat(18, 1fr);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+}
+
+.head {
+  background: linear-gradient(rgb(212, 122, 18), rgb(141, 31, 31));
+  border: 0.25vmin solid rgb(0, 0, 0);
+  border-radius: 2px;
+  transform: scale(1.2);
+}
+
+.food {
+  background: linear-gradient(rgb(255, 0, 0), rgb(13, 171, 16));
+  border: 0.25vmin solid rgb(0, 0, 0);
+  border-radius: 50%;
+}
+
+.snake {
+  background-color: rgb(167, 26, 26);
+  border: 0.25vmin solid;
+  border-radius: 2px;
+}
+
+#scoreBox {
+  position: absolute;
+  top: 1rem; /* Relative unit */
+  right: 1rem;
+  font-size: clamp(1.5rem, 4vw, 2rem); /* Scales between 1.5rem and 2rem */
+  color: rgb(0, 0, 0);
+  font-family: "New Tegomin", "Press Start 2P", serif; /* Fallback fonts */
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); /* Improve readability */
+  padding: 0.5rem;
+}
+
+#highScoreBox {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: rgb(0, 0, 0);
+  font-family: "New Tegomin", "Press Start 2P", serif;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+  padding: 0.5rem;
+}
+
+/* Media query for smaller screens (e.g., mobile) */
+@media screen and (max-width: 1200px) {
+  .board {
+    width: 80vmin; /* Slightly larger on small screens */
+    height: 80vmin;
+    min-width: 240px;
+    min-height: 240px;
+  }
+
+  #scoreBox,
+  #highScoreBox {
+    position: static; /* Stack above/below board */
+    margin: 0.5rem 0;
+     font-size: clamp(1.1rem, 2vw, 1.5rem);
+    text-align: center;
+  }
+
+  body {
+    gap: 1rem; /* Space between elements */
+  }
+}
+
+/* Media query for very small screens (e.g., <320px) */
+@media screen and (max-width: 320px) {
+  .board {
+    width: 95vmin;
+    height: 95vmin;
+    min-width: 200px;
+    min-height: 200px;
+  }
+
+  #scoreBox,
+  #highScoreBox {
+    font-size: clamp(1rem, 3vw, 1.4rem);
+  }
+}
+
+/* Media query for large screens (e.g., desktops) */
+@media screen and (min-width: 1200px) {
+  .board {
+    width: 90vmin; /* Slightly smaller to avoid being too large */
+    height: 90vmin;
+  }
+
+  #scoreBox,
+  #highScoreBox {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+  }
+}
