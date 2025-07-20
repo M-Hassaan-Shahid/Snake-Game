@@ -112,14 +112,7 @@ function highScore() {
     }
 }
 
-
-
-
-
-
-
-
-
+ 
 window.requestAnimationFrame(main);
 window.addEventListener('keydown', e => {
     musicSound.play();
@@ -145,6 +138,38 @@ window.addEventListener('keydown', e => {
         default:
             break;
     }
-
-
 })
+
+// Add event listeners for arrow buttons
+const arrowUp = document.getElementById('arrow-up');
+const arrowDown = document.getElementById('arrow-down');
+const arrowLeft = document.getElementById('arrow-left');
+const arrowRight = document.getElementById('arrow-right');
+
+function handleArrow(direction) {
+    musicSound.play();
+    moveSound.play();
+    switch (direction) {
+        case 'up':
+            inputDir.x = -1;
+            inputDir.y = 0;
+            break;
+        case 'down':
+            inputDir.x = 1;
+            inputDir.y = 0;
+            break;
+        case 'left':
+            inputDir.x = 0;
+            inputDir.y = -1;
+            break;
+        case 'right':
+            inputDir.x = 0;
+            inputDir.y = 1;
+            break;
+    }
+}
+
+arrowUp.addEventListener('click', () => handleArrow('up'));
+arrowDown.addEventListener('click', () => handleArrow('down'));
+arrowLeft.addEventListener('click', () => handleArrow('left'));
+arrowRight.addEventListener('click', () => handleArrow('right'));
