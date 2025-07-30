@@ -14,7 +14,6 @@ let scoreElement = document.getElementById('scoreBox');
 
 function main(ctime) {
     window.requestAnimationFrame(main);
-    console.log(ctime);
     if ((ctime - lastPaintTime) / 1000 < 1 / speed) {
         return;
     }
@@ -112,7 +111,7 @@ function highScore() {
     }
 }
 
- 
+
 window.requestAnimationFrame(main);
 window.addEventListener('keydown', e => {
     musicSound.play();
