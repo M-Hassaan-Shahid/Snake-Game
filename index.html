@@ -1,25 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Snake Mania</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="body">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snake Mania</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="game-container">
+    <div class="score-container">
+      <div id="highScoreBox">High Score: 0</div>
       <div id="scoreBox">Score: 0</div>
-      <div id="highScoreBox">High Score: </div>
-      <div class="board"></div>
-      <div class="arrow-controls">
-        <button id="arrow-up" aria-label="Up">&#8593;</button><br>
-        <div class="up"></div>
-        <div class="down"><button id="arrow-left" aria-label="Left">&#8592;</button>
-        <button id="arrow-down" aria-label="Down">&#8595;</button>
-        <button id="arrow-right" aria-label="Right">&#8594;</button></div>
+      <div id="levelBox">Level: 1</div>
+    </div>
+    <div class="level-selector">
+      <div class="selector-row">
+        <label for="startLevel">Start Level:</label>
+        <select id="startLevel">
+          <option value="1">Level 1 (Slow)</option>
+          <option value="2">Level 2</option>
+          <option value="3">Level 3</option>
+          <option value="4">Level 4</option>
+          <option value="5">Level 5 (Medium)</option>
+          <option value="6">Level 6</option>
+          <option value="7">Level 7</option>
+          <option value="8">Level 8</option>
+          <option value="9">Level 9</option>
+          <option value="10">Level 10 (Fast)</option>
+        </select>
+      </div>
+
+      <div class="selector-row">
+        <label class="checkbox-container">
+          <input type="checkbox" id="autoSpeedIncrease" checked>
+          <span class="checkmark"></span>
+          Auto Speed Increase
+        </label>
+        <button id="newGameBtn">New Game</button>
+      </div>
+     
+    </div>
+    <div class="board"></div>
+    <div id="toast" class="toast"></div>
+    <div class="mobile-controls">
+      <div class="control-row">
+        <button id="arrow-up" class="control-btn" aria-label="Up">
+          <span class="arrow">&#8593;</span>
+        </button>
+      </div>
+      <div class="control-row">
+        <button id="arrow-left" class="control-btn" aria-label="Left">
+          <span class="arrow">&#8592;</span>
+        </button>
+        <button id="arrow-down" class="control-btn" aria-label="Down">
+          <span class="arrow">&#8595;</span>
+        </button>
+        <button id="arrow-right" class="control-btn" aria-label="Right">
+          <span class="arrow">&#8594;</span>
+        </button>
       </div>
     </div>
+  </div>
 
-    <script src="script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
+
 </html>
